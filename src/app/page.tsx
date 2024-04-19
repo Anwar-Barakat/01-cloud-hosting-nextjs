@@ -1,5 +1,3 @@
-
-import HeaderSection from '../../components/Header/Header';
 const HomePage = () => {
   return (
     <div>
