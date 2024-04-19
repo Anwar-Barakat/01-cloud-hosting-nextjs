@@ -1,8 +1,8 @@
 
+import HeaderSection from '../../components/Header/Header';
 const HomePage = () => {
   return (
     <div>
-      Home Page
       <h1>Welcome to NextJS</h1>
     </div>
   )

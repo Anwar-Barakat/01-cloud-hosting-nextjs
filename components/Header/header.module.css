@@ -1,0 +1,123 @@
+.header {
+  height: 100px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(144, 144, 144, 1);
+  background-color: rgba(227, 225, 225, 1);
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.navbar .navLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .navLinks .navLink {
+  font-size: 1.3rem;
+}
+
+.header .buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header .btn {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+  cursor: pointer;
+}
+
+.header .btn:hover,
+.header .btn:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.header .btn:hover {
+  transform: translateY(-1px);
+}
+
+.header .btn:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+.header .btn.login {
+  background: #000;
+  color: #fff;
+}
+
+.header .menu {
+  font-size: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 1079px) {
+  .header .menu {
+    display: block;
+  }
+  .navbar .logo {
+    display: none;
+  }
+  .navLinksWrapper {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background-color: rgba(227, 225, 225, 1);
+    transition: 0.5s all ease-in-out;
+    z-index: 100;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  .navLinksWrapper .navLinks {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
