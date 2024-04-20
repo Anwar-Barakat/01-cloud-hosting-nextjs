@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 
-interface ErrorPageProps {
+interface ArticleErrorPageProps {
     error: Error,
     reset: () => void,
 }
 
-const ArticleErrorPage = ({ error, reset }: ErrorPageProps) => {
+const ArticleErrorPage = ({ error, reset }: ArticleErrorPageProps) => {
     return (
         <div className="py-7 text-center">
             <div className="text-3xl font-semibold text-red-700">
