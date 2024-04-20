@@ -9,8 +9,6 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [
-    require("daisyui")
-  ],
+  plugins: [require("flowbite/plugin")],
 };
 export default config;

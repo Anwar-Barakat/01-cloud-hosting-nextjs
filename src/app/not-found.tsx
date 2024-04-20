@@ -17,12 +17,12 @@ const NotFoundPage = () => {
                         </div>
                     </div>
                     <div>
-                        {/* <Image src="https://i.ibb.co/G9DC8S0/404-2.png" alt="Not Found" width={100} height={100} /> */}
+                        <Image src="https://i.ibb.co/G9DC8S0/404-2.png" alt="Not Found" width={600} height={600} />
                     </div>
                 </div>
             </div>
             <div>
-                {/* <Image src="https://i.ibb.co/ck1SGFJ/Group.png" alt="Not Found" width={100} height={100} /> */}
+                <Image src="https://i.ibb.co/ck1SGFJ/Group.png" alt="Not Found" width={600} height={600} />
             </div>
         </div>
     )
