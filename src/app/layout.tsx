@@ -4,6 +4,10 @@ import "./globals.css";
 import HeaderSection from "../components/Header/Header";
 import FooterSection from "@/components/footer/footer";
 
+// toastr notification 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+
 const inter = Inter({ subsets: ["latin"] });
 const cairo = Cairo({ subsets: ["arabic"] });
 
@@ -22,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <HeaderSection />
+        <ToastContainer theme="colored" />
         <main className="fix-height">{children}</main>
         <FooterSection />
       </body>
