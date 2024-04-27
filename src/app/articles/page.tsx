@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ArticleItem from "../../components/articles/ArticleItem";
 import { Article } from "@/utils/types";
+import { Metadata } from "next";
 
 const ArticlesPage = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -27,3 +28,8 @@ const ArticlesPage = async () => {
 }
 
 export default ArticlesPage
+
+export const metadata: Metadata = {
+    title: 'Articles List',
+    description: 'Cloud Hosting Articles List',
+}

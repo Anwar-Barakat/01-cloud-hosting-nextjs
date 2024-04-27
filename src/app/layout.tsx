@@ -7,6 +7,7 @@ import FooterSection from "@/components/footer/footer";
 // toastr notification 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const cairo = Cairo({ subsets: ["arabic"] });
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
   description: "Cloud Hosting, NEXTJS App",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface RootLayoutRoot {
+  children: React.ReactNode
+}
+
+export default function RootLayout({children }: RootLayoutRoot) {
   return (
     <html lang="en">
       <body className={inter.className}>

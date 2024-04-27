@@ -18,3 +18,6 @@ body {
 .fix-height {
   min-height: calc(100vh - 100px);
 }
+.overflow-height {
+  height: calc(100vh - 100px);
+}
