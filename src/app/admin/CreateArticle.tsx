@@ -11,8 +11,6 @@ const CreateArticle = () => {
         e.preventDefault();
         if (title === '') toast.error('Title is required');
         if (description === '') toast.error('Description is required');
-
-
     }
     return (
         <form className="space-y-4 md:space-y-6" onSubmit={submitHandler}>
