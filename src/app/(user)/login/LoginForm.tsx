@@ -1,18 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 const LoginFormComponent = () => {
+    const router = useRouter()
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
-        if (email === '') toast.error('Email is required');
-        if (password === '') toast.error('Password is required');
-
-
+        if (email === '') return toast.error('Email is required');
+        if (password === '') return toast.error('Password is required');
+        router.replace('/')
     }
     return (
         <form className="space-y-4 md:space-y-6" onSubmit={submitHandler}>

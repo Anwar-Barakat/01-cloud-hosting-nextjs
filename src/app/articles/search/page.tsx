@@ -1,9 +1,12 @@
-import React from 'react'
+interface searchArticlePageParams {
+    searchParams: { search: string }
+}
 
-const ArticleSearchPage = () => {
+const ArticleSearchPage = ({ searchParams }: searchArticlePageParams) => {
+
     return (
         <div>
-            Article Search Page
+            <h1>Search: {searchParams.search}</h1>
         </div>
     )
 }

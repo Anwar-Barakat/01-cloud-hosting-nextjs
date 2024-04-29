@@ -6,6 +6,9 @@ import SearchArticleInput from "@/components/articles/SearchArticleInput";
 import Pagination from "@/components/articles/Pagination";
 
 const ArticlesPage = async () => {
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000))
+
     const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
         // cache: 'force-cache', // default cache
         // cache: 'no-cache',

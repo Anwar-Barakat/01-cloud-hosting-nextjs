@@ -6,6 +6,9 @@ interface SingleArticlePageProps {
   params: { id: string }
 }
 const SingleArticlePage = async ({ params }: SingleArticlePageProps) => {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 10000);
+  })
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
   if (!response.ok) {
     throw new Error('Article not found')
