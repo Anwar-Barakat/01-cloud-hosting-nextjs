@@ -1,10 +1,8 @@
-import { articles } from "@/utils/data";
 import prisma from "@/utils/db";
 import { CreateArticleDto } from "@/utils/dto";
 import { createArticleSchema } from "@/utils/validationSchema";
 import { PrismaClient, Article, Comment, User } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
-
 
 /**
  * @method GET
