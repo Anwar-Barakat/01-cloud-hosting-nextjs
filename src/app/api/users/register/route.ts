@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 
 /**
- * @method GET
+ * @method POST
  * @route ~/api/register
  * @desc Create a user
  * @access Public

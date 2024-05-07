@@ -21,9 +21,15 @@ export const createArticleSchema = z.object({
     .max(25),
 });
 
-// Article Validation
+// Register Validation
 export const registerSchema = z.object({
   username: z.string().min(3).max(20),
+  email: z.string().min(4).max(30).email(),
+  password: z.string().min(6),
+});
+
+// Login Validation
+export const loginSchema = z.object({
   email: z.string().min(4).max(30).email(),
   password: z.string().min(6),
 });
