@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     };
     const token = generateJWT(userPayload);
     return NextResponse.json(
-      { message: "Authenticated", token },
+      { message: "Authenticated", token, user },
       { status: 200 }
     );
   } catch (error) {
