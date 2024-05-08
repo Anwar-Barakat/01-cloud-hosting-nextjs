@@ -3,6 +3,8 @@ import { RegisterUserDto } from "@/utils/dto";
 import { registerSchema } from "@/utils/validationSchema";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { JWTPayload } from "@/utils/types";
+import { generateJWT } from "@/utils/generateToken";
 
 /**
  * @method POST
@@ -31,7 +33,7 @@ export async function POST(request: NextRequest) {
     }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(body.password, salt);
-    const newUser = await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         username: body.username,
         email: body.email,
@@ -45,9 +47,14 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const token = null;
+    const jwtPayload: JWTPayload = {
+      id: user.id,
+      username: user.username,
+      isAdmin: user.isAdmin,
+    };
+    const token = generateJWT(jwtPayload);
 
-    return NextResponse.json({ ...newUser, token }, { status: 201 });
+    return NextResponse.json({ ...user, token }, { status: 201 });
   } catch (error) {
     return NextResponse.json({ message: "internal error" }, { status: 500 });
   }
