@@ -2,6 +2,7 @@ import prisma from "@/utils/db";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { JWTPayload } from "@/utils/types";
+import { verifyToken } from "@/utils/verifyToken";
 
 interface ProfileProps {
   params: { id: string };
@@ -24,14 +25,10 @@ export async function DELETE(request: NextRequest, { params }: ProfileProps) {
     if (!user) {
       return NextResponse.json({ message: "user not found" }, { status: 500 });
     }
-    const jwtToken = request.cookies.get("jwtToken");
-    const token = jwtToken?.value as string;
-    const userFormToken = jwt.verify(
-      token,
-      process.env.JWT_SECRET_KEY
-    ) as JWTPayload;
 
-    if (userFormToken.id === user.id) {
+    const userFromToken = verifyToken(request);
+
+    if (userFromToken !== null && userFromToken.id === user.id) {
       await prisma.user.delete({ where: { id: user.id } });
       return NextResponse.json(
         { message: "user deleted successfully" },
