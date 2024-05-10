@@ -24,10 +24,8 @@ export async function DELETE(request: NextRequest, { params }: ProfileProps) {
     if (!user) {
       return NextResponse.json({ message: "user not found" }, { status: 500 });
     }
-    const token: string = request.headers.get("token") as string;
-    if (!token) {
-      return NextResponse.json({ message: "access denied" }, { status: 401 });
-    }
+    const jwtToken = request.cookies.get("jwtToken");
+    const token = jwtToken?.value as string;
     const userFormToken = jwt.verify(
       token,
       process.env.JWT_SECRET_KEY

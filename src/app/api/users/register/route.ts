@@ -4,7 +4,7 @@ import { registerSchema } from "@/utils/validationSchema";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { JWTPayload } from "@/utils/types";
-import { generateJWT } from "@/utils/generateToken";
+import { generateJWT, setCookie } from "@/utils/generateToken";
 
 /**
  * @method POST
@@ -52,9 +52,19 @@ export async function POST(request: NextRequest) {
       username: user.username,
       isAdmin: user.isAdmin,
     };
-    const token = generateJWT(jwtPayload);
 
-    return NextResponse.json({ ...user, token }, { status: 201 });
+    const cookie = setCookie(jwtPayload);
+
+    return NextResponse.json(
+      {
+        message: "registered successfully",
+        ...user,
+        headers: {
+          "Set-Cookie": cookie,
+        },
+      },
+      { status: 201 }
+    );
   } catch (error) {
     return NextResponse.json({ message: "internal error" }, { status: 500 });
   }
